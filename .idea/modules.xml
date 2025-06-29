@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+ 190155-Concurrency_Synchronisation
       <module fileurl="file://$PROJECT_DIR$/.idea/queue-group-assignment-wantam.iml" filepath="$PROJECT_DIR$/.idea/queue-group-assignment-wantam.iml" />
+
+      <module fileurl="file://$PROJECT_DIR$/.idea/MiniProject.iml" filepath="$PROJECT_DIR$/.idea/MiniProject.iml" />
+ main
     </modules>
   </component>
 </project>
