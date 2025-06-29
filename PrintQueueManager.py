@@ -1,19 +1,28 @@
+import time
 
+def remove_expired_jobs(self, expiry_limit: int = 30):
 
-from datetime import datetime, timedelta
+    current_time = time.time()
+    new_queue = [None] * self.capacity
+    new_front = 0
+    new_rear = -1
+    new_size = 0
 
-class PrintQueueManager:
-    def __init__(self):
-        self.queue = []  # List of dicts representing jobs
-        self.expiry_seconds = 30  # Example: jobs expire after 30 seconds
-
-    def remove_expired_jobs(self):
-        current_time = datetime.now()
-        updated_queue = []
-        for job in self.queue:
-            waiting_time = (current_time - job['submitted_at']).total_seconds()
-            if waiting_time >= self.expiry_seconds:
-                print(f"[EXPIRED] Job {job['job_id']} from User {job['user_id']} expired and removed.")
+    index = self.front
+    for _ in range(self.size):
+        job = self.queue[index]
+        if job is not None:
+            wait_time = current_time - job['submission_time']
+            if wait_time >= expiry_limit:
+                print(f"[EXPIRED] Job {job['job_id']} from user {job['user_id']} removed after {int(wait_time)}s")
             else:
-                updated_queue.append(job)
-        self.queue = updated_queue
+                new_rear = (new_rear + 1) % self.capacity
+                new_queue[new_rear] = job
+                new_size += 1
+        index = (index + 1) % self.capacity
+
+
+    self.queue = new_queue
+    self.front = new_front
+    self.rear = new_rear
+    self.size = new_size
