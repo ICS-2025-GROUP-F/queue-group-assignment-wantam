@@ -1,6 +1,13 @@
 import time
 from typing import Optional, Dict, Any, List
 
+from priority_aging_system import apply_priority_aging
+from PrintQueueManager import remove_expired_jobs
+from Concurrency import _post_init_concurrency_, thread_safe_enqueue_job, handle_simultaneous_submissions
+from ESTM import tick
+from VisualisationReporting import get_queue_snapshot, print_queue_snapshot
+
+
 class PrintQueueManager:
     def __init__(self, capacity: int = 15):
         self.capacity = capacity
@@ -84,3 +91,14 @@ class PrintQueueManager:
         else:
             print("No jobs in queue")
         print("=" * 20)
+
+
+#Attatching methods imported from other classes so they can be used in the Implemmentation file
+apply_priority_aging = apply_priority_aging
+remove_expired_jobs = remove_expired_jobs
+_post_init_concurrency_ = _post_init_concurrency_
+thread_safe_enqueue_job = thread_safe_enqueue_job
+handle_simultaneous_submissions = handle_simultaneous_submissions
+tick = tick
+get_queue_snapshot = get_queue_snapshot
+print_queue_snapshot = print_queue_snapshot
