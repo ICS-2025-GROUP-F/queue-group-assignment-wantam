@@ -1,5 +1,5 @@
-GROUP NAME: Wantam
-Members:
+# GROUP NAME: Wantam
+## Members:
 Matthew Theuri - 189945 (Group leader)
 Too Mercy Chepkemboi - 190155
 Obino Ian Nyamosi - 189942
@@ -7,6 +7,7 @@ Elavaza Sandra - 190480
 Leon Mark Munene Ngatia - 190140
 
 Matthew's module was module 1: Core queue management. He created functions to enqueue, dequeue, peek, and fetch all jobs.
+He also imported the methods from the other files into his so they can be utilised by the main class, PrintQueueManager
 
 Ian's module was module 2: Priority & Aging. He created a function to implement priority-based job ordering designed with
 aging logic to increase job priority based on wait time.
@@ -22,5 +23,4 @@ Sandra's module was module 5: Event Simulation & Time Management. She created a 
 progression, tied aging and expiry to time simulation and updated job age and priority dynamically.
 
 
-How to run the code: run Instance.py
-#
+# How to run the code: run main.py
