@@ -1,19 +1,12 @@
-class PrintQueueManager:
-    def __init__(self):
-        self.queue = []
-        self.aging_interval = 3  # After this many ticks, job gains priority
+import time
 
-    def apply_priority_aging(self):
-        """
-        Increases priority of waiting jobs, resets wait time,
-        then sorts by priority and wait time.
-        """
-        for job in self.queue:
-            job["waiting_time"] += 1
+def apply_priority_aging(self, aging_interval: int = 3):
+    current_time = time.time()
+    for job in self.get_all_jobs():
+        job['waiting_time'] = int(current_time - job['submission_time'])
 
-            if job["waiting_time"] >= self.aging_interval:
-                job["priority"] += 1
-                job["waiting_time"] = 0  # Reset after aging
-
-        # Sorts using greedy logic: best job (high priority, longest wait) comes first
-        self.queue.sort(key=lambda job: (-job["priority"], -job["waiting_time"]))
+        # Apply aging logic
+        if job['waiting_time'] >= aging_interval:
+            old_priority = job['aged_priority']
+            job['aged_priority'] += 1
+            print(f"[AGING] Job {job['job_id']} aged: Priority {old_priority} → {job['aged_priority']}")
