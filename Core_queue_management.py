@@ -9,6 +9,7 @@ from VisualisationReporting import get_queue_snapshot, print_queue_snapshot
 
 
 class PrintQueueManager:
+
     def __init__(self, capacity: int = 15):
         self.capacity = capacity
         self.queue = [None] * capacity  # Circular queue
@@ -93,12 +94,13 @@ class PrintQueueManager:
         print("=" * 20)
 
 
-#Attatching methods imported from other classes so they can be used in the Implemmentation file
-apply_priority_aging = apply_priority_aging
-remove_expired_jobs = remove_expired_jobs
-_post_init_concurrency_ = _post_init_concurrency_
-thread_safe_enqueue_job = thread_safe_enqueue_job
-handle_simultaneous_submissions = handle_simultaneous_submissions
-tick = tick
-get_queue_snapshot = get_queue_snapshot
-print_queue_snapshot = print_queue_snapshot
+#Attatching methods imported from other classes so they can be used in the Implementation file
+
+PrintQueueManager.apply_priority_aging = apply_priority_aging
+PrintQueueManager.remove_expired_jobs = remove_expired_jobs
+PrintQueueManager._post_init_concurrency_ = _post_init_concurrency_
+PrintQueueManager.thread_safe_enqueue_job = thread_safe_enqueue_job
+PrintQueueManager.handle_simultaneous_submissions = handle_simultaneous_submissions
+PrintQueueManager.tick = tick
+PrintQueueManager.get_queue_snapshot = get_queue_snapshot
+PrintQueueManager.print_queue_snapshot = print_queue_snapshot
