@@ -12,7 +12,7 @@ He also imported the methods from the other files into his so they can be utilis
 Ian's module was module 2: Priority & Aging. He created a function to implement priority-based job ordering designed with
 aging logic to increase job priority based on wait time.
 
-Leon implemnted modules 3 (Job expiry and cleanup) and 6 (Visualization & Reporting ).
+Leon implemented modules 3 (Job expiry and cleanup) and 6 (Visualization & Reporting ).
 In module 3 he added a function to remove expired jobs.
 In module 6 he implemented functions to print snapshots of the queue state in clear logs
 
@@ -23,4 +23,4 @@ Sandra's module was module 5: Event Simulation & Time Management. She created a 
 progression, tied aging and expiry to time simulation and updated job age and priority dynamically.
 
 
-# How to run the code: run main.py
+#How to run the code: run main.py
